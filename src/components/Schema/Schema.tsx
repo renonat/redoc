@@ -42,11 +42,10 @@ export class Schema extends React.Component<Partial<SchemaProps>> {
     }
 
     if (discriminatorProp !== undefined) {
-      if (!oneOf || !oneOf.length) {
-        console.warn(
-          `Looks like you are using discriminator wrong: you don't have any definition inherited from the ${schema.title}`,
-        );
-        return null;
+      if (oneOf !== undefined) {
+        return (
+          <OneOfSchema schema={schema} {...this.props} />
+        )
       }
       return (
         <ObjectSchema

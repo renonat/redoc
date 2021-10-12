@@ -135,7 +135,7 @@ export function isPrimitiveType(schema: OpenAPISchema, type: string | string[] |
 }
 
 export function isJsonLike(contentType: string): boolean {
-  return contentType.search(/json/i) !== -1;
+  return contentType.search(/json/i) !== -1 || contentType.search(/form-data/i) !== -1;
 }
 
 export function isFormUrlEncoded(contentType: string): boolean {
